@@ -139,7 +139,7 @@ app.use('/api-docs',swaggerUI.serve, swaggerUI.setup(swaggerDocs) );
         method: 'GET',
         url: `https://api.coingecko.com/api/v3/coins/${id?req.params.id :''}/market_chart`,
         params: {vs_currency:req.query.vs_currency? parsedCurrency:'usd', 
-                  days:parsedDays},
+                  days:req.query.days?parsedDays:30},
         headers: {
           'accept': 'application/json',
         }
